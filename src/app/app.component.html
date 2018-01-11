@@ -1,18 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-Title : {{title}}
-<div *ngIf="selectedUser">
-    <h4>Details</h4>
-    <ul>
-        <li [class.red]="selectedUser.id === 1"> Id:{{selectedUser.id}}</li>
-        <li>Name:{{selectedUser.name}}</li>
-        <li>Job Title:{{selectedUser.jobTitle}}</li>
-    </ul>
-</div>
-<h4>List</h4>
-<ul style="list-style:none ">
-    <li *ngFor="let user of users" style="cursor:pointer" (click)="onSelectUser(user)">
-        Id:{{user.id}} Name:{{user.name}}
-    </li>
-</ul>
-<app-sizer [(size)]="fontSizePx"></app-sizer>
-<div [style.font-size.px]="fontSizePx">Re-sizable Text</div>
+<mat-card *ngIf="selectedProduct">
+    <mat-card-title>{{selectedProduct.name}}</mat-card-title>
+    <mat-card-subtitle>{{selectedProduct.id}}</mat-card-subtitle>
+    <mat-card-content>{{selectedProduct.sku}}</mat-card-content>
+</mat-card>
+<app-list [products]="products" (onSelect)="onProductSelection($event)"></app-list>

@@ -1,28 +1,25 @@
 import { Component } from '@angular/core';
 import { User } from './model/user';
+import { Product } from './model/product';
+import { ProductService } from './xproduct-list-component/product.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // styleUrls: ['./app.component.css'],
-  styles: ['.red{background-color:red }']
+  styleUrls: ['./app.component.css'],
+  providers: [ProductService]
 })
 export class AppComponent {
-  title = 'App';
-  selectedUser: User;
-  users: User[] = [];
-   fontSizePx = 20;
-   constructor() {
-    this.users = [
-      new User(1, 'Mr. Red', 'CTO'),
-      new User(2, 'Mr. Blue', 'CEO'),
-      new User(3, 'Mr. Green', 'CFO'),
-      new User(4, 'Mr. White', 'Director')
-    ];
-     this.title = 'Bindings';
-   }
 
-  onSelectUser(user: User): void {
-    this.selectedUser = user;
+  products: Product[] = [];
+  selectedProduct: Product;
+
+  constructor(private _productService: ProductService) {
+    this.products = this._productService.getProducts();
+  }
+
+  onProductSelection(product: Product): void {
+    console.log('Handled :' + product.id);
+    this.selectedProduct = product;
   }
 }

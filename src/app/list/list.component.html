@@ -1,0 +1,12 @@
+<mat-nav-list>
+    <mat-list-item *ngFor="let product of products">
+        {{product.name}} &nbsp;
+        <mat-chip-list>
+            <mat-chip>{{product.sku}}</mat-chip>
+            <mat-chip>{{calculate(product.id)}}</mat-chip>
+        </mat-chip-list>
+        <button mat-icon-button (click)="selectProduct(product)">
+          <mat-icon>info</mat-icon>
+        </button>
+    </mat-list-item>
+</mat-nav-list>
