@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Pipe({
   name: 'fetchJson',
-  pure: true
+  pure: false
 })
 export class FetchJsonPipe implements PipeTransform {
 
