@@ -1,6 +1,7 @@
 <mat-card *ngIf="selectedProduct">
     <mat-card-title>{{selectedProduct.name}}</mat-card-title>
     <mat-card-subtitle>{{selectedProduct.id}}</mat-card-subtitle>
-    <mat-card-content>{{selectedProduct.sku}}</mat-card-content>
+    <mat-card-content>{{selectedProduct.sku | skuurl | fetchJson | json }}</mat-card-content>
 </mat-card>
+<h1>Deep was born on {{ dob | date : 'full' | uppercase }}</h1>
 <app-list [products]="products" (onSelect)="onProductSelection($event)"></app-list>

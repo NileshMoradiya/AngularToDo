@@ -4,6 +4,7 @@
         <mat-chip-list>
             <mat-chip>{{product.sku}}</mat-chip>
             <mat-chip>{{calculate(product.id)}}</mat-chip>
+            <mat-chip>{{product.sku | skuhash | skuurl }}</mat-chip>
         </mat-chip-list>
         <button mat-icon-button (click)="selectProduct(product)">
           <mat-icon>info</mat-icon>

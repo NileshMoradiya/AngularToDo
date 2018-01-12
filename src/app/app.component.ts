@@ -13,7 +13,7 @@ export class AppComponent {
 
   products: Product[] = [];
   selectedProduct: Product;
-
+  dob = new Date(1988, 3, 15);
   constructor(private _productService: ProductService) {
     this.products = this._productService.getProducts();
   }
